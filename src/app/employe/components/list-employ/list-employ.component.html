@@ -1,0 +1,65 @@
+
+<div  style="position:relative ;width: 100%;
+  height:800px;">
+
+
+
+<app-item-employe  (newEmp)="onAction($event)" style="position: absolute;top:0%;left: 20%"  type="compAjout">
+
+
+
+
+
+</app-item-employe>
+
+
+
+<app-modif-employe style="position: absolute;top:0%; left: 0%;  width:20%;
+  height: 100%;
+  background-color: skyblue;">
+
+
+</app-modif-employe>
+
+
+
+
+
+
+              <div style="position: absolute;right: 0%;top: 30%">
+
+                <button style="background-color: #4C9E1D" (click)="onSave()" >save</button>
+                <button style="background-color: blue">refrseh</button>
+                <button style="background-color: red" (click)="onCancel('modification')">cancel</button>
+
+
+
+              </div>
+
+
+<div class="loader"  *ngIf="loading$ | async"></div>
+
+
+<div style="display: flex; flex-wrap: wrap ;position: absolute;left: 20%;top: 40%;">
+<ng-container *ngFor=" let varEmpl of employes$ |async">
+   {{varEmpl.id}}
+
+
+
+  <app-item-employe   type="compfils" [EmpObj]="varEmpl">
+
+
+  </app-item-employe>
+
+</ng-container>
+
+</div>
+
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<div  style="border-radius:20%">
+<form [formGroup]="emplForm" >
+  <fieldset>
+<div style="float: right">
+
+    <button *ngIf="TypeEmp === 'compfils'" style="background-color: red" (click)="deleteEmp(EmpObj.id)">x</button>
+
+</div>
+  <span style="display: flex;flex-direction: column; flex-wrap: wrap">
+  <legend *ngIf="TypeEmp !== 'compfils'">Ajout utilisateur</legend>
+  <label for="fname">Nom</label>
+  <input type="text" id="fname" name="fname" formControlName="nom"
+         [ngModel]="prenom"  [readOnly]="type==='compfils'"
+  [ngClass]="{inpdscv:type=='compfils'}"
+
+  >
+  <label for="lname">Prenom</label>
+  <input type="text" id="lname" name="lname" formControlName="prenom" [ngModel]="name"
+         [ngClass]="{inpdscv:type=='compfils'}"
+  >
+  <label for="nbenfant">Nombre d'enfant:</label>
+    <div style="display: flex; justify-content:space-between;place-items: center">
+  <input type="number" id="nbenfant" name="nbenfant" formControlName="nbEnfants"
+
+
+  placeholder="0"  [ngModel]="nbenfant"  >
+
+      <button (click)="incrEnfant()" >
+
+
+      &#43;
+
+      </button>
+      <button  (click)="decrEnfant()" >
+
+      &#45;
+
+      </button>
+
+      </div>
+    <button
+      *ngIf="type=='compAjout'"
+      type="submit" (click)="onLeaveEmpl()"  style="color: midnightblue;margin-left: 25%" [disabled]="!emplForm.valid"
+
+    ><b>AJOUTER</b></button>
+
+
+</span>
+  </fieldset>
+</form>
+</div>

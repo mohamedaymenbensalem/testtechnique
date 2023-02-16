@@ -1,0 +1,54 @@
+<div>
+
+
+  <h1>modifier</h1>
+
+
+  <form [formGroup]="emplForm" >
+
+
+
+    <label for="nom">
+      Nom
+    </label>
+    <br>
+    <input type="text"  formControlName="nom" id="nom">
+
+    <br>
+    <label for="prenom">
+      Prenom
+    </label>
+<br>
+    <input  type="text"    formControlName="prenom" id="prenom">
+
+<br>
+    <label for="nbEnfant">
+      Nombre des enfants
+    </label>
+<br>
+    <input type="text"   id="nbEnfant" [disabled]="true">
+
+
+
+    <p *ngIf="Empmodif$ | async as item">
+
+      {{item | json}}
+
+
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+  </form>
+
+
+
+</div>
